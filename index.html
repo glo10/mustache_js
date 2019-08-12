@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Template avec Mustache</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container" class="loader"></div>
+  <!--Rendering data-->
+  <script id="content">
+
+    {{#mySection.header}}
+      <header>
+        <h1>{{ title }}</h1>
+      </header>
+    {{/mySection.header}}
+
+    {{#mySection.body}}
+      <main>
+        <p>{{ paragraph1 }}</p>
+        <p>{{ paragraph2 }}</p>
+        <ul>
+          {{#colors}}
+            {{> colorsBox}}
+          {{/colors}}
+        </ul>
+      </main>
+    {{/mySection.body}}
+
+    {{#mySection.footer}}
+      <footer>
+        <span>{{ span }}</span>
+      </footer>
+    {{/mySection.footer}}
+
+  </script>
+  <!--partial data insert into content-->
+  <script id="colorsBox">
+    <li>{{ . }}</li>
+  </script>
+  <script src="node_modules/mustache/mustache.min.js"></script>
+  <script src="js/main.js"></script>
+</body>
+
+</html>
